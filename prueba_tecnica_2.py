@@ -8,14 +8,14 @@ def total_palabras():
         return
     
     # Quitamos los signos de puntuacion del texto
-    frase = frase.replace(".", "")
-    frase = frase.replace(",", "")
-    frase = frase.replace("¿", "")
-    frase = frase.replace("?", "")
-    frase = frase.replace("¡", "")
-    frase = frase.replace("!", "")
+    frase_sin_puntuacion = frase.replace(".", "")
+    frase_sin_puntuacion = frase.replace(",", "")
+    frase_sin_puntuacion = frase.replace("¿", "")
+    frase_sin_puntuacion = frase.replace("?", "")
+    frase_sin_puntuacion = frase.replace("¡", "")
+    frase_sin_puntuacion = frase.replace("!", "")
 
-    for i in frase:
+    for i in frase_sin_puntuacion:
         # Cada que encontramos un espacio en blanco, significa que una palabra ha terminado, por lo que podemos incrementar el contador
         if (i == " "):
             j = j + 1
@@ -62,18 +62,13 @@ def palabra_mas_larga():
         return
     
     # Quitamos los signos de puntuacion del texto
-    frase = frase.replace(".", "")
-    frase = frase.replace(",", "")
-    frase = frase.replace("¿", "")
-    frase = frase.replace("?", "")
-    frase = frase.replace("¡", "")
-    frase = frase.replace("!", "")
+    frase_sin_puntuacion = frase.replace(".", "").replace(",", "").replace("¿", "").replace("?", "").replace("¡", "").replace("!", "")
 
-    for i in frase:
+    for i in frase_sin_puntuacion:
         # Buscamos la cantidad de letras de cada palabra, verificando si existe un espacio, para delimitar la longitud
         # La almacenamos dentro de un arreglo, e iteramos por cada letra de la oracion
         if (i == " "):
-            frase_split = frase.split(" ")
+            frase_split = frase_sin_puntuacion.split(" ")
             contador_letras.append(j - 1)
             j = 0
         else:
@@ -104,17 +99,12 @@ def palabra_mas_corta():
         return
     
     # Quitamos los signos de puntuacion del texto
-    frase = frase.replace(".", "")
-    frase = frase.replace(",", "")
-    frase = frase.replace("¿", "")
-    frase = frase.replace("?", "")
-    frase = frase.replace("¡", "")
-    frase = frase.replace("!", "")
+    frase_sin_puntuacion = frase.replace(".", "").replace(",", "").replace("¿", "").replace("?", "").replace("¡", "").replace("!", "")
     
     # Dividimos cada palabra de la oracion en cadenas individuales, para evaluarlas de una mejor manera
-    for i in frase:
+    for i in frase_sin_puntuacion:
         if (i == " "):
-            frase_split = frase.split(" ")
+            frase_split = frase_sin_puntuacion.split(" ")
     
     # Recorremos cada palabra, y medimos su longitud. Si la comparamos con un valor alto, y vamos paulatinamente disminuyendo su valor,
     # nos encontraremos con el valor mas bajo de longitudes en una palabra
