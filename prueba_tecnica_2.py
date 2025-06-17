@@ -6,6 +6,14 @@ def total_palabras():
     if len(frase) == 0:
         print("No es posible leer entradas vacias")
         return
+    
+    # Quitamos los signos de puntuacion del texto
+    frase = frase.replace(".", "")
+    frase = frase.replace(",", "")
+    frase = frase.replace("¿", "")
+    frase = frase.replace("?", "")
+    frase = frase.replace("¡", "")
+    frase = frase.replace("!", "")
 
     for i in frase:
         # Cada que encontramos un espacio en blanco, significa que una palabra ha terminado, por lo que podemos incrementar el contador
@@ -53,6 +61,14 @@ def palabra_mas_larga():
     if len(frase) == 0:
         return
     
+    # Quitamos los signos de puntuacion del texto
+    frase = frase.replace(".", "")
+    frase = frase.replace(",", "")
+    frase = frase.replace("¿", "")
+    frase = frase.replace("?", "")
+    frase = frase.replace("¡", "")
+    frase = frase.replace("!", "")
+
     for i in frase:
         # Buscamos la cantidad de letras de cada palabra, verificando si existe un espacio, para delimitar la longitud
         # La almacenamos dentro de un arreglo, e iteramos por cada letra de la oracion
@@ -86,6 +102,14 @@ def palabra_mas_corta():
 
     if len(frase) == 0:
         return
+    
+    # Quitamos los signos de puntuacion del texto
+    frase = frase.replace(".", "")
+    frase = frase.replace(",", "")
+    frase = frase.replace("¿", "")
+    frase = frase.replace("?", "")
+    frase = frase.replace("¡", "")
+    frase = frase.replace("!", "")
     
     # Dividimos cada palabra de la oracion en cadenas individuales, para evaluarlas de una mejor manera
     for i in frase:
