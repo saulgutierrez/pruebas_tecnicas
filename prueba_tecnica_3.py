@@ -83,7 +83,7 @@ def procesar_estadisticas(enteros):
         if count > repeticiones or (count == repeticiones and enteros[i] > mas_frecuente):
             repeticiones = count
             mas_frecuente = enteros[i]
-    print("El valor mas frecuente es: ", mas_frecuente, "(",repeticiones,") veces")
+    print("Numero mas frecuente: ", mas_frecuente, "(",repeticiones,") veces")
 
     # Devolvemos un array con los resultados de todos los calculos, para guardarlo en el archivo
     resultados = [
