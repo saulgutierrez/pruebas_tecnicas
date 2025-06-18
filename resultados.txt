@@ -1,0 +1,19 @@
+Total de numeros: 
+8
+Promedio: 
+26.125
+Maximo: 
+100
+Minimo: 
+-5
+Positivos: 
+5
+Negativos: 
+2
+Ceros: 
+1
+Numero mas frecuente: 
+42
+, (
+2
+) veces
