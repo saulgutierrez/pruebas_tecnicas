@@ -1,0 +1,6 @@
+Total de usuarios: 6
+Edad promedio: 27.0
+Usuario mas joven: María(19) años
+Usuario mas viejo: Pedro(35) años
+Usuarios por ciudad: ['Monterrey', 3, 'Guadalajara', 2, 'Ciudad de México', 1]
+Ciudad con mas usuarios: Monterrey
