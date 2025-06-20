@@ -12,13 +12,12 @@ def leer_archivo(texto):
             # esta en minuscula, en cuyo caso, la ignoramos en el bucle de lectura
             if linea.islower():
                 continue
+            # Dividimos cada campo del archivo, por su delimitador, y lo copiamos dentro de un arreglo usando un
+            # bucle, de esta manera, podemos copiar todo el contenido del archivo de forma separada, independientemente
+            # de la cantidad de columnas, es decir, de forma dinamica
             palabras = linea.split(",")
-            temp = palabras[0]
-            temp2 = palabras[1]
-            temp3 = palabras[2] #.removesuffix("\n")
-            texto.append(temp)
-            texto.append(temp2)
-            texto.append(temp3)
+            for i in palabras:
+                texto.append(i)
     return texto
 
 def calcular_estadisticas(texto):
@@ -29,39 +28,57 @@ def calcular_estadisticas(texto):
     for i in texto:
         if "\n" in i:
             cantidad_usuarios += 1
-    # Agregamos un ultimo usuario al conteo final, puesto que el ultimo registro no incluye salta de linea
+    # Agregamos un ultimo usuario al conteo final, puesto que el ultimo registro no incluye salto de linea
     cantidad_usuarios += 1
     print("Cantidad de usuarios: ", cantidad_usuarios)
 
     # Edad promedio de todos los usuarios
-    # Exraemos los indices de las edades
-    edades = [texto.pop(1), texto.pop(3), texto.pop(5), texto.pop(7), texto.pop(9), texto.pop(11)]
-    edades_total = 0
+    edades = [] # Almacenamos las edades de los usuarios
+    # Recorremos cada campo del texto, hasta encontrar un valor que pueda ser convertido a entero, que corresponde a la edad.
+    # En tal caso, lo almacenamos
+    for i in texto:
+        try:
+            i = int(i)
+            edades.append(i)
+        except Exception as e:
+            continue
     promedio = 0.0
-    # Convertimos a valor entero
-    edades_int = [int(x) for x in edades]
-
-    for i in edades_int:
-        edades_total += i
-    promedio = edades_total / cantidad_usuarios
-    print("Edad pronedio: ", promedio)
+    suma = 0
+    for i in edades:
+        suma = suma + i
+    promedio = suma/cantidad_usuarios
+    print("Edad promedio", promedio)
 
     # Usuario mas joven
-    index = 1
-    mas_joven = float("inf")
-    for i in edades_int:
-        if (i <= mas_joven):
-            index += 1
+    pos_edades = 0
+    pos_edad = 0
+    fila = 0
+    mas_joven = float('inf')
+    for i in edades:
+        pos_edades += 1
+        if i < mas_joven:
             mas_joven = i
-    print("Usuario mas joven: (",index, "nombre", mas_joven, "años)")
+            pos_edad = pos_edades
+
+    mas_joven_datos = []
+    for i in texto:
+        if "\n" in i:
+            fila = fila + 1
+            if fila == pos_edad:
+                mas_joven_datos.append(i)
+
+    print("Usuario mas joven: ", mas_joven, "Pocision: ", pos_edad)
 
     # Usuario mas viejo
-    
+    mas_viejo = -float('inf')
+    for i in edades:
+        if i > mas_viejo:
+            mas_viejo = i
+    print("Usuario mas viejo", mas_viejo)
+
     # Numero de usuarios por ciudad
     
     # Ciudad con mas usuarios
-
-    return texto
 
 def guardar_resultados():
     return
